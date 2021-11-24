@@ -1,0 +1,9 @@
+建议使用蓝叠模拟器，配置请看 模拟器配置.png，请在引擎设置中选择允许adb连接。
+
+需要在python环境中运行，如果没有python环境请先安装python
+https://www.python.org/ftp/python/3.10.0/python-3.10.0-amd64.exe
+安装时请勾选Add Python 3.10 to PATH,其他默认
+
+打开模拟器然后进行操作：初次使用时请先运行config.bat初始化环境，直到出现sucessfully.....等字样且模拟器中出现ATX（小车）即完成初始化。然后运行gui.py即可开始
+
+详情请联系作者QQ:2416660192
