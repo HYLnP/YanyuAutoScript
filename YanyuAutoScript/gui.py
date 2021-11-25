@@ -6,9 +6,9 @@ from tkinter import Tk, Button
 import threading
 import uiautomator2 as u2
 
-print('欢迎使用烟雨江湖脚本,本脚本禁止商用。')
 
-print("""初始位置在泰山马车处，需要有马车票，使用前请先检查是否有马车票""")
+print('欢迎使用烟雨江湖脚本,本脚本禁止商用。')
+print("初始位置在泰山马车处，需要有马车票，使用前请先检查是否有马车票")
 
 
 class MainWindow(Tk):
@@ -29,14 +29,16 @@ class MainWindow(Tk):
         """事件主体"""
         btn1 = Button(self, text='塞北刷怪', command=lambda: MainWindow.thread_it(self.sai_bei))
         btn1.place(x=20, y=100)
-        btn2 = Button(self, text='燕王阁', command=lambda: MainWindow.thread_it(self.yan_wang))
+        btn2 = Button(self, text='燕王阁3次', command=lambda: MainWindow.thread_it(self.yan_wang))
         btn2.place(x=100, y=100)
-        btn3 = Button(self, text='枯骨门', command=lambda: MainWindow.thread_it(self.ku_gu))
+        btn3 = Button(self, text='枯骨门1次', command=lambda: MainWindow.thread_it(self.ku_gu))
         btn3.place(x=180, y=100)
-        btn4 = Button(self, text='天一教', command=lambda: MainWindow.thread_it(self.tian_yi))
+        btn4 = Button(self, text='天一教1次', command=lambda: MainWindow.thread_it(self.tian_yi))
         btn4.place(x=20, y=200)
-        btn5 = Button(self, text='铁刃门', command=lambda: MainWindow.thread_it(self.tie_ren))
+        btn5 = Button(self, text='铁刃门1次', command=lambda: MainWindow.thread_it(self.tie_ren))
         btn5.place(x=100, y=200)
+        btn5 = Button(self, text='一键运行所有', command=lambda: MainWindow.thread_it(self.yi_jian))
+        btn5.place(x=180, y=200)
 
     def sai_bei(self):
         """塞北刷怪"""
@@ -291,6 +293,8 @@ class MainWindow(Tk):
         self.device.click(0.456, 0.861)
         time.sleep(6)
 
+        print('----------------------燕王阁完成-------------------')
+
     def ku_gu(self):
         print("""从泰山到杭州""")
         self.device.click(0.208, 0.943)
@@ -360,10 +364,12 @@ class MainWindow(Tk):
         time.sleep(2)
         self.device.click(0.292, 0.815)
         time.sleep(2)
-        self.device.click(0.592, 0.613)
+        self.device.click(0.594, 0.294)
         time.sleep(2)
-        self.device.click(0.456, 0.861)
+        self.device.click(0.456, 0.549)
         time.sleep(6)
+
+        print('----------------------枯骨门完成-------------------')
 
     def tian_yi(self):
         print("""从泰山到成都""")
@@ -417,10 +423,12 @@ class MainWindow(Tk):
         time.sleep(2)
         self.device.click(0.292, 0.815)
         time.sleep(2)
-        self.device.click(0.592, 0.613)
+        self.device.click(0.938, 0.251)
         time.sleep(2)
-        self.device.click(0.456, 0.861)
+        self.device.click(0.794, 0.521)
         time.sleep(6)
+
+        print('----------------------天一教完成-------------------')
 
     def tie_ren(self):
         print("""泰山到杭州""")
@@ -475,10 +483,19 @@ class MainWindow(Tk):
         time.sleep(2)
         self.device.click(0.292, 0.815)
         time.sleep(2)
-        self.device.click(0.592, 0.613)
+        self.device.click(0.594, 0.294)
         time.sleep(2)
-        self.device.click(0.456, 0.861)
+        self.device.click(0.456, 0.549)
         time.sleep(6)
+
+        print("-----------------铁刃门完成--------------------")
+        
+    def yi_jian(self):
+        self.sai_bei()
+        self.yan_wang()
+        self.ku_gu()
+        self.tian_yi()
+        self.tie_ren()
 
     @staticmethod
     def thread_it(func, *args):
